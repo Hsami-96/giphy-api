@@ -8,7 +8,6 @@ export const useFetchAPI = () => {
   const [error, setError] = useState(null);
 
       const getData = async (url: string, offset: number, searchText?: string): Promise<GifsResult> => {
-        console.log('getting data')
         return axios(url, {
             params: {
                 api_key: apiKey,
