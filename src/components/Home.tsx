@@ -1,3 +1,4 @@
+import { Grid } from "@giphy/react-components";
 import { useFetchAPI } from "../hooks/use-fetch-api";
 
 export const Home = () => {
@@ -9,6 +10,10 @@ export const Home = () => {
 
   console.log(trendsData)
   return (
-    <div>Home</div>
+    <div>
+      {/* <Grid 
+        initialGifs={trendsData}
+      /> */}
+    </div>
   )
 }

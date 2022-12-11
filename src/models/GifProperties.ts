@@ -1,6 +1,6 @@
 export interface GifProperties {
-    height: string
-    width: string
-    size: string
-    url: string
+    height: number
+    width: number
+    size: string | undefined
+    url: string | undefined
   }

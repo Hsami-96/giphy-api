@@ -1,7 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { IGif } from '@giphy/js-types';
 import { GifProperties } from "../models/GifProperties";
 import { mapToGifData } from "../utils/MapToGifData";
+
 interface useFetchAPIProps {
   url: string;
 }
@@ -24,10 +26,9 @@ export const useFetchAPI = ({ url }: useFetchAPIProps) => {
         .then((response) => {
           if(response.data.data) {
             let gifProperties: GifProperties[] = []
-            response.data.data.map((gif: any) => {
-              // map data 
-              const mapToGifProperties = mapToGifData(gif)
-              gifProperties.push(mapToGifProperties)
+            response.data.data.map((gif: IGif) => {
+                const mapToGifProperty = mapToGifData(gif)
+                gifProperties.push(mapToGifProperty)
             })
 
             setData(gifProperties);          
