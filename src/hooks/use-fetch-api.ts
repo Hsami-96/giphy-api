@@ -2,20 +2,19 @@ import { GifsResult } from "@giphy/js-fetch-api";
 import axios from "axios";
 import { useState } from "react";
 
-interface useFetchAPIProps {
-  url: string,
-}
 const apiKey: string = process.env.REACT_APP_GIPHY_KEY ?? ''
 
-export const useFetchAPI = ({ url }: useFetchAPIProps) => {
+export const useFetchAPI = () => {
   const [error, setError] = useState(null);
 
-      const getTrendingData = async (offset: number): Promise<GifsResult> => {
+      const getData = async (url: string, offset: number, searchText?: string): Promise<GifsResult> => {
+        console.log('getting data')
         return axios(url, {
             params: {
                 api_key: apiKey,
                 offset: offset,
-                limit: 10
+                limit: 10,
+                q: searchText
             }
         }).then((data) => {
             return data.data 
@@ -25,7 +24,7 @@ export const useFetchAPI = ({ url }: useFetchAPIProps) => {
       }
 
   return {
-    getTrendingData,
+    getData,
     error
   }
 };
