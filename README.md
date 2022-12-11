@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Its using AntDesign for search input: https://ant.design/
+
+Also making use of the Giphy react component types and Grid for the UI @giphy/react-components  
+
 ## Available Scripts
 
 In the project directory, you can run:
